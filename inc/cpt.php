@@ -9,44 +9,45 @@
 defined( 'ABSPATH' ) || exit;
 
 
-//topic custom post type
 
-// Register Custom Post Type topic
-// Post Type Key: topic
+//journey custom post type
 
-function create_topic_cpt() {
+// Register Custom Post Type journey
+// Post Type Key: journey
+
+function create_journey_cpt() {
 
   $labels = array(
-    'name' => __( 'Topics', 'Post Type General Name', 'textdomain' ),
-    'singular_name' => __( 'Topic', 'Post Type Singular Name', 'textdomain' ),
-    'menu_name' => __( 'Topic', 'textdomain' ),
-    'name_admin_bar' => __( 'Topic', 'textdomain' ),
-    'archives' => __( 'Topic Archives', 'textdomain' ),
-    'attributes' => __( 'Topic Attributes', 'textdomain' ),
-    'parent_item_colon' => __( 'Topic:', 'textdomain' ),
-    'all_items' => __( 'All Topics', 'textdomain' ),
-    'add_new_item' => __( 'Add New Topic', 'textdomain' ),
+    'name' => __( 'Journeys', 'Post Type General Name', 'textdomain' ),
+    'singular_name' => __( 'Journey', 'Post Type Singular Name', 'textdomain' ),
+    'menu_name' => __( 'Journey', 'textdomain' ),
+    'name_admin_bar' => __( 'Journey', 'textdomain' ),
+    'archives' => __( 'Journey Archives', 'textdomain' ),
+    'attributes' => __( 'Journey Attributes', 'textdomain' ),
+    'parent_item_colon' => __( 'Journey:', 'textdomain' ),
+    'all_items' => __( 'All Journeys', 'textdomain' ),
+    'add_new_item' => __( 'Add New Journey', 'textdomain' ),
     'add_new' => __( 'Add New', 'textdomain' ),
-    'new_item' => __( 'New Topic', 'textdomain' ),
-    'edit_item' => __( 'Edit Topic', 'textdomain' ),
-    'update_item' => __( 'Update Topic', 'textdomain' ),
-    'view_item' => __( 'View Topic', 'textdomain' ),
-    'view_items' => __( 'View Topics', 'textdomain' ),
-    'search_items' => __( 'Search Topics', 'textdomain' ),
+    'new_item' => __( 'New Journey', 'textdomain' ),
+    'edit_item' => __( 'Edit Journey', 'textdomain' ),
+    'update_item' => __( 'Update Journey', 'textdomain' ),
+    'view_item' => __( 'View Journey', 'textdomain' ),
+    'view_items' => __( 'View Journeys', 'textdomain' ),
+    'search_items' => __( 'Search Journeys', 'textdomain' ),
     'not_found' => __( 'Not found', 'textdomain' ),
     'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
     'featured_image' => __( 'Featured Image', 'textdomain' ),
     'set_featured_image' => __( 'Set featured image', 'textdomain' ),
     'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
     'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
-    'insert_into_item' => __( 'Insert into topic', 'textdomain' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this topic', 'textdomain' ),
-    'items_list' => __( 'Topic list', 'textdomain' ),
-    'items_list_navigation' => __( 'Topic list navigation', 'textdomain' ),
-    'filter_items_list' => __( 'Filter Topic list', 'textdomain' ),
+    'insert_into_item' => __( 'Insert into journey', 'textdomain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this journey', 'textdomain' ),
+    'items_list' => __( 'Journey list', 'textdomain' ),
+    'items_list_navigation' => __( 'Journey list navigation', 'textdomain' ),
+    'filter_items_list' => __( 'Filter Journey list', 'textdomain' ),
   );
   $args = array(
-    'label' => __( 'topic', 'textdomain' ),
+    'label' => __( 'journey', 'textdomain' ),
     'description' => __( '', 'textdomain' ),
     'labels' => $labels,
     'menu_icon' => '',
@@ -65,15 +66,16 @@ function create_topic_cpt() {
     'show_in_rest' => true,
     'publicly_queryable' => true,
     'capability_type' => 'post',
-    'menu_icon' => 'dashicons-universal-access-alt',
+    'menu_icon' => 'dashicons-location-alt',
   );
-  register_post_type( 'topic', $args );
+  register_post_type( 'journey', $args );
   
   // flush rewrite rules because we changed the permalink structure
   global $wp_rewrite;
   $wp_rewrite->flush_rules();
 }
-add_action( 'init', 'create_topic_cpt', 0 );
+add_action( 'init', 'create_journey_cpt', 0 );
+
 
 
 //activity custom post type
@@ -116,7 +118,6 @@ function create_activity_cpt() {
     'label' => __( 'activity', 'textdomain' ),
     'description' => __( '', 'textdomain' ),
     'labels' => $labels,
-    'menu_icon' => '',
     'supports' => array('title', 'editor', 'revisions', 'author', 'trackbacks', 'custom-fields', 'thumbnail',),
     'taxonomies' => array('category', 'post_tag'),
     'public' => true,
@@ -132,7 +133,7 @@ function create_activity_cpt() {
     'show_in_rest' => true,
     'publicly_queryable' => true,
     'capability_type' => 'post',
-    'menu_icon' => 'dashicons-universal-access-alt',
+    'menu_icon' => 'dashicons-superhero-alt',
   );
   register_post_type( 'activity', $args );
   

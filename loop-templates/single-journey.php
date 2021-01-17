@@ -1,6 +1,6 @@
 <?php
 /**
- * Single topic partial template
+ * Single journey partial template
  *
  * @package UnderStrap
  */
