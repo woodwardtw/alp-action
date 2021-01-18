@@ -23,6 +23,41 @@ function acf_fetch_challenge(){
 }
 
 
+function acf_fetch_phase(){
+  global $post;
+  $html = '';
+  $phase = get_field('phase_alignment');
+
+    if( $phase) {  
+    $name = $phase->name;
+    $slug = $phase->slug;
+
+    $html = "<div class='phase {$slug}'><h3>{$name}</h3></div>";  
+     return $html;    
+    }
+
+}
+
+
+
+function acf_fetch_journey(){
+  global $post;
+  $html = '';
+  $journey = get_field('journey_alignment');
+    if( $journey) {  
+    $name = $journey[0]->post_title;
+    $url = $journey[0]->guid;
+    $slug = $journey[0]->post_name;
+
+    $html = "<div class='journey {$slug}'><h3>{$name}</h3></div>";  
+     return $html;    
+    }
+
+}
+
+
+
+
 
 
 
