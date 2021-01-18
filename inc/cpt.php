@@ -78,44 +78,45 @@ add_action( 'init', 'create_journey_cpt', 0 );
 
 
 
-//activity custom post type
 
-// Register Custom Post Type activity
-// Post Type Key: activity
+//challenge custom post type
 
-function create_activity_cpt() {
+// Register Custom Post Type challenge
+// Post Type Key: challenge
+
+function create_challenge_cpt() {
 
   $labels = array(
-    'name' => __( 'Activities', 'Post Type General Name', 'textdomain' ),
-    'singular_name' => __( 'Activity', 'Post Type Singular Name', 'textdomain' ),
-    'menu_name' => __( 'Activity', 'textdomain' ),
-    'name_admin_bar' => __( 'Activity', 'textdomain' ),
-    'archives' => __( 'Activity Archives', 'textdomain' ),
-    'attributes' => __( 'Activity Attributes', 'textdomain' ),
-    'parent_item_colon' => __( 'Activity:', 'textdomain' ),
-    'all_items' => __( 'All Activities', 'textdomain' ),
-    'add_new_item' => __( 'Add New Activity', 'textdomain' ),
+    'name' => __( 'Challenges', 'Post Type General Name', 'textdomain' ),
+    'singular_name' => __( 'Challenge', 'Post Type Singular Name', 'textdomain' ),
+    'menu_name' => __( 'Challenge', 'textdomain' ),
+    'name_admin_bar' => __( 'Challenge', 'textdomain' ),
+    'archives' => __( 'Challenge Archives', 'textdomain' ),
+    'attributes' => __( 'Challenge Attributes', 'textdomain' ),
+    'parent_item_colon' => __( 'Challenge:', 'textdomain' ),
+    'all_items' => __( 'All Challenges', 'textdomain' ),
+    'add_new_item' => __( 'Add New Challenge', 'textdomain' ),
     'add_new' => __( 'Add New', 'textdomain' ),
-    'new_item' => __( 'New Activity', 'textdomain' ),
-    'edit_item' => __( 'Edit Activity', 'textdomain' ),
-    'update_item' => __( 'Update Activity', 'textdomain' ),
-    'view_item' => __( 'View Activity', 'textdomain' ),
-    'view_items' => __( 'View Activities', 'textdomain' ),
-    'search_items' => __( 'Search Activities', 'textdomain' ),
+    'new_item' => __( 'New Challenge', 'textdomain' ),
+    'edit_item' => __( 'Edit Challenge', 'textdomain' ),
+    'update_item' => __( 'Update Challenge', 'textdomain' ),
+    'view_item' => __( 'View Challenge', 'textdomain' ),
+    'view_items' => __( 'View Challenges', 'textdomain' ),
+    'search_items' => __( 'Search Challenges', 'textdomain' ),
     'not_found' => __( 'Not found', 'textdomain' ),
     'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
     'featured_image' => __( 'Featured Image', 'textdomain' ),
     'set_featured_image' => __( 'Set featured image', 'textdomain' ),
     'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
     'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
-    'insert_into_item' => __( 'Insert into activity', 'textdomain' ),
-    'uploaded_to_this_item' => __( 'Uploaded to this activity', 'textdomain' ),
-    'items_list' => __( 'Activity list', 'textdomain' ),
-    'items_list_navigation' => __( 'Activity list navigation', 'textdomain' ),
-    'filter_items_list' => __( 'Filter Activity list', 'textdomain' ),
+    'insert_into_item' => __( 'Insert into challenge', 'textdomain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this challenge', 'textdomain' ),
+    'items_list' => __( 'Challenge list', 'textdomain' ),
+    'items_list_navigation' => __( 'Challenge list navigation', 'textdomain' ),
+    'filter_items_list' => __( 'Filter Challenge list', 'textdomain' ),
   );
   $args = array(
-    'label' => __( 'activity', 'textdomain' ),
+    'label' => __( 'challenge', 'textdomain' ),
     'description' => __( '', 'textdomain' ),
     'labels' => $labels,
     'supports' => array('title', 'editor', 'revisions', 'author', 'trackbacks', 'custom-fields', 'thumbnail',),
@@ -133,12 +134,12 @@ function create_activity_cpt() {
     'show_in_rest' => true,
     'publicly_queryable' => true,
     'capability_type' => 'post',
-    'menu_icon' => 'dashicons-superhero-alt',
+    'menu_icon' => 'dashicons-superhero',
   );
-  register_post_type( 'activity', $args );
+  register_post_type( 'challenge', $args );
   
   // flush rewrite rules because we changed the permalink structure
   global $wp_rewrite;
   $wp_rewrite->flush_rules();
 }
-add_action( 'init', 'create_activity_cpt', 0 );
+add_action( 'init', 'create_challenge_cpt', 0 );

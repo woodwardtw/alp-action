@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single topics
+ * The template for displaying all single challenges
  *
  * @package UnderStrap
  */
@@ -12,9 +12,18 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<div class="wrapper" id="single-wrapper">
+<div class="wrapper" id="single-challenge-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="container-fluid" id="content" tabindex="-1">
+		
+		<div class="star-holder">
+			 <header class="entry-header d-flex justify-content-center align-items-center">
+			 <?php echo get_the_post_thumbnail( $post->ID, 'thumbnail', array('class'=>'img-fluid challenge-img' )); ?>
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+		  <div id="starmap"></div>
+		  <div id="fader"></div>
+        </div>
 
 		<div class="row">
 
@@ -26,7 +35,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php
 				while ( have_posts() ) {
 					the_post();
-					get_template_part( 'loop-templates/content', 'single-topic' );
+					get_template_part( 'loop-templates/content', 'challenge' );
 					understrap_post_nav();
 
 					// If comments are open or we have at least one comment, load up the comment template.

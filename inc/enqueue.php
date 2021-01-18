@@ -24,6 +24,13 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 
 		$js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/theme.min.js' );
 		wp_enqueue_script( 'understrap-scripts', get_template_directory_uri() . '/js/theme.min.js', array(), $js_version, true );
+
+		//star stuff
+		wp_enqueue_script( 'stuquery', get_template_directory_uri() . '/js/stuquery.min.js', array(), $js_version, false );
+		wp_enqueue_script( 'virtualsky', get_template_directory_uri() . '/js/virtualsky.min.js', array('stuquery'), $js_version, false );
+		//my theme stuff
+		wp_enqueue_script( 'alp-activate', get_template_directory_uri() . '/js/alp-activate.js', array('virtualsky'), $js_version, true );
+
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
