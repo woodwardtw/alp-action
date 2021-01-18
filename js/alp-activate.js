@@ -13,7 +13,7 @@ if (document.getElementById('starmap')){
 		planetarium = S.virtualsky({
 	    id: 'starmap',	// This should match the ID used in the DOM
 	    background: 'rgb(0,49,60)',
-	    projection: 'stereo',
+	    projection: 'gnomic', //stereo is cooler but doesn't scroll
 	    transparent: true,
 	    scalestars: 2,
 	    showplanetlabels: false,
@@ -28,6 +28,8 @@ if (document.getElementById('starmap')){
 	    gradient: false,
 
 		});
+		
+		planetarium.panTo(56.8690917,24.1053111,22000)
 
 	});
 }

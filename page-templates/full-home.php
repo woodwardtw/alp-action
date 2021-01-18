@@ -29,7 +29,6 @@ if ( is_front_page() ) {
 
 		<div class="row" id="starmap">			
 		</div>
-		
 
 
 		<div class="row">
