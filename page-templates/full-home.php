@@ -21,11 +21,16 @@ if ( is_front_page() ) {
 <div class="wrapper" id="full-width-page-wrapper">
 
 	<div class="container-fluid home" id="content">
-		<div class="rocket-land">
-			<div class="rocket-circle">
-				<h1>ACTIVATE!</h1>
-			</div>
+		<div class="row" id="home-message">
+			<div class="col-md-4 offset-md-4 home-message">
+<!-- 				<h1>ACTIVATE</h1>
+ -->			</div>
 		</div>
+
+		<div class="row" id="starmap">			
+		</div>
+		
+
 
 		<div class="row">
 

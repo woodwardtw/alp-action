@@ -24,22 +24,36 @@ h1, h2, h3, h4, h5, h6 {
 	color: #fff;
 }
 
-
-.rocket-land {
-	position:relative;
-  	width:50%;
-  	padding-bottom:50%;
-	border: 12px solid #fff;
-	border-radius: 50%;
-	margin: 0 auto;
+.home-message {
+	z-index: 100;
+	direction: block;
+	position: absolute;
+	top: 40vh;
+	background-image: url(../imgs/shuttle.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	height: 500px;
+	text-align: center;
 }
 
-.rocket-circle {
-  position:absolute;
-  top:50%; left:50%;
-  transform: translate(-50%, -50%);
-  margin:0;
-}
+
+
+// .rocket-land {
+// 	position:relative;
+//   	width:50%;
+//   	padding-bottom:50%;
+// 	border: 12px solid #fff;
+// 	border-radius: 50%;
+// 	margin: 0 auto;
+// }
+
+// .rocket-circle {
+//   position:absolute;
+//   top:50%; left:50%;
+//   transform: translate(-50%, -50%);
+//   margin:0;
+// }
 
 //challenge
 
@@ -104,11 +118,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #starmap {
-  
   height: 500px;
   width:100%;
   z-index: 1;
   display:block;
+  overflow: hidden;
 }
 
 #fader {
