@@ -47,6 +47,11 @@ h1, h2, h3, h4, h5, h6 {
 	padding-top: 0;	
 }
 
+#single-challenge-wrapper h2, #single-challenge-wrapper h3, #single-challenge-wrapper h4 {
+	color: $midnight;
+	font-weight: 700;
+}
+
 #single-challenge-wrapper .container-fluid {
 	padding-left: 0;
 	padding-right: 0;
@@ -79,13 +84,23 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: $gold;
 	padding: 15px 30px;
 	margin-left: -10px;
-	margin-top: 30px;
+	margin-top: 70px;
+}
+
+.challenge-text {
+	font-size: 1.5em;
+	padding: 0 20px;
 }
 
 //starmap
 
 .star-holder{
   position:relative;
+  margin-bottom: 70px;
+}
+
+.virtualskybutton {
+	display: none !important;
 }
 
 #starmap {
@@ -98,10 +113,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #fader {
   width: 100%;
-  height: 400px;
+  height: 500px;
   position:absolute;
   background: rgb(0,49,60);
-  background: linear-gradient(0deg, rgba(0,49,60,1) 0%, rgba(0,49,60,0) 100%);  display:block;
+  background: linear-gradient(0deg, rgba(0,49,60,1) 0%, rgba(0,49,60,0) 50%, rgba(0,49,60,1) 100%);
+  display:block;
   z-index: 10;
   bottom: 0;
 }

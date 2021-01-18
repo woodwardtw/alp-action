@@ -12,8 +12,10 @@ defined( 'ABSPATH' ) || exit;
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	
 	<div class="entry-content">
-		<?php echo acf_fetch_challenge();?>
-		<?php the_content(); ?>
+		<div class="col-md-7 offset-md-5 challenge-text">
+			<?php echo acf_fetch_challenge();?>
+			<?php the_content(); ?>
+		</div>
 
 		<?php
 		wp_link_pages(

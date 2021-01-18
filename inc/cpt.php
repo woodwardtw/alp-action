@@ -1,6 +1,6 @@
 <?php
 /**
- * custom post types
+ * custom post types and taxonomies
  *
  * @package UnderStrap
  */
@@ -143,3 +143,41 @@ function create_challenge_cpt() {
   $wp_rewrite->flush_rules();
 }
 add_action( 'init', 'create_challenge_cpt', 0 );
+
+
+add_action( 'init', 'create_phase_taxonomies', 0 );
+function create_phase_taxonomies()
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Phases', 'taxonomy general name' ),
+    'singular_name' => _x( 'Phase', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Phases' ),
+    'popular_items' => __( 'Popular Phases' ),
+    'all_items' => __( 'All Phases' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Phases' ),
+    'update_item' => __( 'Update phase' ),
+    'add_new_item' => __( 'Add New phase' ),
+    'new_item_name' => __( 'New phase' ),
+    'add_or_remove_items' => __( 'Add or remove Phases' ),
+    'choose_from_most_used' => __( 'Choose from the most used Phases' ),
+    'menu_name' => __( 'Phase' ),
+  );
+
+//registers taxonomy specific post types - default is just post
+  register_taxonomy('Phases',array('post','challenge'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'phase' ),
+    'show_in_rest'          => true,
+    'rest_base'             => 'phase',
+    'rest_controller_class' => 'WP_REST_Terms_Controller',
+    'show_in_nav_menus' => true,    
+  ));
+}
+

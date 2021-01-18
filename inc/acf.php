@@ -16,7 +16,7 @@ function acf_fetch_challenge(){
   $challenge = get_field('challenge_description');
 
     if( $challenge) {      
-      $html = $challenge;  
+      $html = "<h2>Challenge</h2>" . $challenge;  
      return $html;    
     }
 
