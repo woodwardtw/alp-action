@@ -14,8 +14,17 @@ defined( 'ABSPATH' ) || exit;
 	<div class="entry-content">
 		<div class="col-md-8 offset-md-4 challenge-text">
 			<?php echo acf_fetch_challenge();?>
-			<?php echo acf_fetch_phase();?>
-			<?php echo acf_fetch_journey();?>
+			<!-- <div class="row challenge-details">
+				<?php //echo acf_fetch_journey();?>
+				<?php //echo acf_fetch_phase();?>
+			</div> -->
+			<div class="row challenge-submit">
+				<div class="col-md-8 offset-md-2">
+					<div class="big-participate">
+				    <?php get_template_part('imgs/button_participate');?>
+					</div>
+				</div>
+			</div>
 			<?php the_content(); ?>
 		</div>
 

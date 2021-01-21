@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-//challenges
+//journeys
 
 
 function acf_fetch_challenge(){
@@ -26,13 +26,15 @@ function acf_fetch_challenge(){
 function acf_fetch_phase(){
   global $post;
   $html = '';
-  $phase = get_field('phase_alignment');
+  $phase = get_field('phase_alignment',$post->ID);
 
     if( $phase) {  
     $name = $phase->name;
     $slug = $phase->slug;
+    $url = get_term_link($phase->term_id);
+    //var_dump($url);
 
-    $html = "<div class='phase {$slug}'><h3>{$name}</h3></div>";  
+    $html = "<h3>Phase</h3><a href='{$url}' aria-label='See more {$name} work'><div class='phase {$slug}'></div></a>";  
      return $html;    
     }
 
@@ -43,13 +45,13 @@ function acf_fetch_phase(){
 function acf_fetch_journey(){
   global $post;
   $html = '';
-  $journey = get_field('journey_alignment');
+  $journey = get_field('journey_alignment', $post->ID);
     if( $journey) {  
     $name = $journey[0]->post_title;
     $url = $journey[0]->guid;
     $slug = $journey[0]->post_name;
 
-    $html = "<div class='journey {$slug}'><h3>{$name}</h3></div>";  
+    $html = "<h3>Journey</h3><a href='#' aria-label='See more {$name} work'><div class='journey {$slug}'></div></a>";  
      return $html;    
     }
 
