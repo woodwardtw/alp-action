@@ -12,20 +12,24 @@ defined( 'ABSPATH' ) || exit;
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	
 	<div class="entry-content">
-		<div class="col-md-8 offset-md-4 challenge-text">
+		<div class="col-md-11 offset-md-1 challenge-text">
 			<?php echo acf_fetch_challenge();?>
 			<!-- <div class="row challenge-details">
 				<?php //echo acf_fetch_journey();?>
 				<?php //echo acf_fetch_phase();?>
 			</div> -->
 			<div class="row challenge-submit">
-				<div class="col-md-8 offset-md-2">
+				<div class="col-md-11">
 					<div class="big-participate">
-				    <?php get_template_part('imgs/button_participate');?>
-					</div>
-				</div>
+				    		<a data-toggle="collapse" href="#participate-area" role="button" aria-expanded="false" aria-controls="participate-area"><?php get_template_part('imgs/button_participate');?></a>
+				</div>								
 			</div>
+			<div class="collapse col-md-11" id="participate-area">
+					   <?php echo acf_fetch_submission_path();?>
+			</div>
+
 			<?php the_content(); ?>
+			<?php activate_show_challenge_submissions();?>
 		</div>
 
 		<?php

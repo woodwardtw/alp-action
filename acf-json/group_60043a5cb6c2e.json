@@ -1,6 +1,6 @@
 {
     "key": "group_60043a5cb6c2e",
-    "title": "challenge",
+    "title": "Challenge",
     "fields": [
         {
             "key": "field_60043a628080d",
@@ -86,6 +86,25 @@
             "load_terms": 1,
             "return_format": "object",
             "multiple": 0
+        },
+        {
+            "key": "field_600ab70fae4fa",
+            "label": "Submission Path",
+            "name": "submission_path",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -116,5 +135,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611003499
+    "modified": 1611314973
 }

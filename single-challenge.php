@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single journeys
+ * The template for displaying all single challenges
  *
  * @package UnderStrap
  */

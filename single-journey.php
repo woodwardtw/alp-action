@@ -12,9 +12,17 @@ get_header();
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<div class="wrapper" id="single-wrapper">
+<div class="wrapper" id="single-journey-wrapper">
 
 	<div class="container-fluid" id="content" tabindex="-1">
+		
+		<div class="star-holder">
+			 <header class="entry-header d-flex justify-content-center align-items-center">
+			 <img src="<?php echo get_template_directory_uri() . '/imgs/badge-' . $post->post_name . '.svg';?>" class="img-fluid journey-img" alt="<?php echo get_the_title();?> icon.">
+			<?php //the_title( '<h1 class="entry-title '. $post->post_name .'">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+		  <div id="starmap"></div>
+        </div>
 
 		<div class="row">
 

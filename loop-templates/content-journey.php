@@ -10,19 +10,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-	<header class="entry-header">
-
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-
-	</header><!-- .entry-header -->
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
+	
 	<div class="entry-content">
-
-		<?php the_content(); ?>
+		<div class="col-md-11 offset-md-1 challenge-text">	
+		    <?php echo acf_fetch_journey_description();?>		
+			<?php the_content(); ?>
+			<div class="row">
+				<?php echo activate_show_journey_submissions();?>
+			</div>
+		</div>
 
 		<?php
 		wp_link_pages(
