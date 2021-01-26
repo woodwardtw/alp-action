@@ -15,6 +15,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Domine', serif;
+	font-weight: 800;
 }
 
 //home
@@ -59,21 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 50px;
 }
 
-// .rocket-land {
-// 	position:relative;
-//   	width:50%;
-//   	padding-bottom:50%;
-// 	border: 12px solid #fff;
-// 	border-radius: 50%;
-// 	margin: 0 auto;
-// }
 
-// .rocket-circle {
-//   position:absolute;
-//   top:50%; left:50%;
-//   transform: translate(-50%, -50%);
-//   margin:0;
-// }
 
 //challenge and journey headers
 
@@ -189,15 +176,15 @@ h1, h2, h3, h4, h5, h6 {
 	background-image: url(../imgs/badge-community-engagement.svg);
 }
 
-.journey-icon.badge-authentic-learning-and-assessment {
+.journey-icon.authentic-learning-and-assessment {
 	background-image: url(../imgs/badge-authentic-learning-and-assessment.svg);
 }
 
-.journey-icon.badge-equity-diversity-and-inclusion {
+.journey-icon.equity-diversity-and-inclusion {
 	background-image: url(../imgs/badge-equity-diversity-and-inclusion.svg);
 }
 
-.journey-icon.badge-social-and-emotional-learning {
+.journey-icon.social-and-emotional-learning {
 	background-image: url(../imgs/badge-social-and-emotional-learning.svg);
 }
 
@@ -294,6 +281,13 @@ h1, h2, h3, h4, h5, h6 {
 //single journey 
 .journey-resource, .journey-experts, .journey-challenges {
 	margin-top: 90px;
+}
+
+.btn-journey {
+	font-size: 1em;
+	font-weight: 800;
+    width: 90%;
+    margin: 50px auto;
 }
 
 .center-label {
@@ -401,4 +395,20 @@ h1, h2, h3, h4, h5, h6 {
   display:block;
   z-index: 10;
   bottom: 0;
+}
+
+
+//footer
+#wrapper-footer {
+	background-color: $midnight;
+	color: #fff;
+}
+
+.copyright {
+	font-size: .8em;
+	margin-top: 8px;
+}
+
+#footer a {
+	color: #fff;
 }

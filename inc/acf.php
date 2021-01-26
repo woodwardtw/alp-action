@@ -51,7 +51,7 @@ function acf_fetch_journey(){
     $url = $journey[0]->guid;
     $slug = $journey[0]->post_name;
 
-    $html = "<h3>Journey</h3><a href='#' aria-label='See more {$name} work'><div class='journey-icon {$slug}'></div></a>";  
+    $html = "<h3>Journey</h3><a href='{$url}' aria-label='See more {$name} work'><div class='journey-icon {$slug}'></div></a>";  
      return $html;    
     }
 
@@ -116,7 +116,7 @@ function acf_fetch_journey_description(){
 function activate_resource_repeater(){
 	$html = '';
 	if( have_rows('resources') ):
-		$html .= "<div class='col-md-12 journey-resource'><h2 class='center-label'>Resources</h2></>";
+		$html .= "<div class='col-md-12 journey-resource' id='resources-div'><h2 class='center-label'>Resources</h2></>";
 	    // Loop through rows.
 	    while( have_rows('resources') ) : the_row();
 
@@ -139,7 +139,7 @@ function activate_resource_repeater(){
 function activate_expert_repeater(){
 	$html = '';
 	if( have_rows('experts') ):
-		$html .= "<div class='col-md-12'><h2 class='center-label'>Experts</h2></></div>";
+		$html .= "<div class='col-md-12' id='expert-div'><h2 class='center-label'>Experts</h2></></div>";
 	    // Loop through rows.
 	    while( have_rows('experts') ) : the_row();
 
@@ -184,7 +184,7 @@ function activate_show_journey_submissions(){
 
 	$sub_query = new WP_Query( $args );
 	if ( $sub_query->have_posts() ) {
-		$html .= "<div class='col-md-12 journey-challenges'><h2 class='center-label'>Challenges Answered!</h2></div>";
+		$html .= "<div class='col-md-12 journey-challenges' id='challenge-div'><h2 class='center-label'>Challenges Answered!</h2></div>";
 	    while ( $sub_query->have_posts() ) {
 	        $sub_query->the_post();
 	        $title = get_the_title();
