@@ -113,6 +113,65 @@ function acf_fetch_journey_description(){
 }
 
 
+function activate_resource_repeater(){
+	$html = '';
+	if( have_rows('resources') ):
+		$html .= "<div class='col-md-12 journey-resource'><h2>Resources</h2></>";
+	    // Loop through rows.
+	    while( have_rows('resources') ) : the_row();
+
+	        // Load sub field value.
+	        $title = get_sub_field('resource_title');
+	        $link = get_sub_field('resource_link');
+	        $description = get_sub_field('resource_description');
+	        $html .= "<div class='resource-item'><a href='{$link}'>{$title}</a> {$description}</div>";
+	        // Do something...
+	    // End loop.
+	    endwhile;
+	    return $html . '</div>';
+		// No value.
+		else :
+		    // Do something...
+		endif;
+	}
+
+
+function activate_expert_repeater(){
+	$html = '';
+	if( have_rows('experts') ):
+		$html .= "<div class='col-md-12 journey-experts'><h2>Experts</h2></>";
+	    // Loop through rows.
+	    while( have_rows('experts') ) : the_row();
+
+	        // Load sub field value.
+	        $name = get_sub_field('expert_name');
+	      	$description = get_sub_field('expert_description');
+	      	$image = get_sub_field('expert_image');
+	      	$twitter = get_sub_field('twitter');
+	      	$page = get_sub_field('personal_site');
+	      	if($twitter){
+	      		$twit = "<a href='{$twitter}' class='twitter'></a>";
+	      	} else {
+	      		$twit = '';
+	      	}
+	      	if($page){
+	      		$homepage = "<a href='{$page}' class='homepage'></a>";
+	      	} else {
+	      		$homepage = '';
+	      	}
+
+	        $html .= "<div class='expert-item'><h3>{$name}</h3> {$description} {$twit}{$homepage}</div>";
+	        // Do something...
+	    // End loop.
+	    endwhile;
+	    return $html . '</div>';
+		// No value.
+		else :
+		    // Do something...
+		endif;
+	}
+
+
 function activate_show_journey_submissions(){
 	global $post;
 	$journey_name = $post->post_name;
@@ -144,6 +203,8 @@ function activate_show_journey_submissions(){
 	/* Restore original Post Data */
 	wp_reset_postdata();
 }
+
+
 
 
 

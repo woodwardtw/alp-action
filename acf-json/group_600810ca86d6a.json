@@ -178,22 +178,6 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_600d808435631",
-                    "label": "Bio Page",
-                    "name": "bio_page",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
                     "key": "field_600d7fca639c8",
                     "label": "Twitter",
                     "name": "twitter",
@@ -211,8 +195,8 @@
                 },
                 {
                     "key": "field_600d7fd9639c9",
-                    "label": "Blog",
-                    "name": "blog",
+                    "label": "Personal site",
+                    "name": "personal_site",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -259,5 +243,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611497676
+    "modified": 1611660201
 }

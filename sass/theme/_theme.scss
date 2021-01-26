@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 	z-index: 100;
 	direction: block;
 	position: absolute;
-	top: 15vh;
+	top: 160px;
 	background-image: url(../imgs/shuttle.svg);
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -276,6 +276,20 @@ h1, h2, h3, h4, h5, h6 {
 
 #right-sidebar h3:after {
     margin: 0 0 0 20px;
+}
+
+//home page 
+.entry-title-home {
+	color: $midnight;
+	font-weight: 900;
+    padding-top: 200px;
+    text-align: center;
+    font-size: 5em;
+}
+
+.home-page .entry-content {
+	color: $midnight;
+	margin-top: 50px;
 }
 
 //starmap

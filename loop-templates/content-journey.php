@@ -16,6 +16,10 @@ defined( 'ABSPATH' ) || exit;
 		    <?php echo acf_fetch_journey_description();?>		
 			<?php the_content(); ?>
 			<div class="row">
+				<?php echo activate_resource_repeater();?>
+				<?php echo activate_expert_repeater();?>
+			</div>
+			<div class="row">
 				<?php echo activate_show_journey_submissions();?>
 			</div>
 		</div>
