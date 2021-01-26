@@ -82,7 +82,7 @@ function activate_show_challenge_submissions(){
 
 	$module_query = new WP_Query( $args );
 	if ( $module_query->have_posts() ) {
-		$html .= "<div class='col-md-11'><h2>Challenge Answered!</h2></div>";
+		$html .= "<div class='col-md-12'><h2>Challenge Answered!</h2></div>";
 	    while ( $module_query->have_posts() ) {
 	        $module_query->the_post();
 	        $title = get_the_title();
@@ -116,7 +116,7 @@ function acf_fetch_journey_description(){
 function activate_resource_repeater(){
 	$html = '';
 	if( have_rows('resources') ):
-		$html .= "<div class='col-md-12 journey-resource'><h2>Resources</h2></>";
+		$html .= "<div class='col-md-12 journey-resource'><h2 class='center-label'>Resources</h2></>";
 	    // Loop through rows.
 	    while( have_rows('resources') ) : the_row();
 
@@ -124,7 +124,7 @@ function activate_resource_repeater(){
 	        $title = get_sub_field('resource_title');
 	        $link = get_sub_field('resource_link');
 	        $description = get_sub_field('resource_description');
-	        $html .= "<div class='resource-item'><a href='{$link}'>{$title}</a> {$description}</div>";
+	        $html .= "<div class='resource-item'><h3><a href='{$link}'>{$title}</a></h3> {$description}</div>";
 	        // Do something...
 	    // End loop.
 	    endwhile;
@@ -139,32 +139,32 @@ function activate_resource_repeater(){
 function activate_expert_repeater(){
 	$html = '';
 	if( have_rows('experts') ):
-		$html .= "<div class='col-md-12 journey-experts'><h2>Experts</h2></>";
+		$html .= "<div class='col-md-12'><h2 class='center-label'>Experts</h2></></div>";
 	    // Loop through rows.
 	    while( have_rows('experts') ) : the_row();
 
 	        // Load sub field value.
 	        $name = get_sub_field('expert_name');
 	      	$description = get_sub_field('expert_description');
-	      	$image = get_sub_field('expert_image');
+	      	$image = get_sub_field('expert_image')['sizes']['medium'];
 	      	$twitter = get_sub_field('twitter');
 	      	$page = get_sub_field('personal_site');
 	      	if($twitter){
-	      		$twit = "<a href='{$twitter}' class='twitter'></a>";
+	      		$twit = "<a href='{$twitter}' class='twitter' aria-label='Twitter account for {$name}'></a>";
 	      	} else {
 	      		$twit = '';
 	      	}
 	      	if($page){
-	      		$homepage = "<a href='{$page}' class='homepage'></a>";
+	      		$homepage = "<a href='{$page}' class='homepage' aria-label='Homepage account for {$name}'></a>";
 	      	} else {
 	      		$homepage = '';
 	      	}
 
-	        $html .= "<div class='expert-item'><h3>{$name}</h3> {$description} {$twit}{$homepage}</div>";
+	        $html .= "<div class='col-md-4'><div class='expert-item'><img src='{$image}' class='img-fluid expert-bio'><h3>{$name}</h3> <p>{$description}</p><div class='expert-social'>{$twit}{$homepage}</div></div></div>";
 	        // Do something...
 	    // End loop.
 	    endwhile;
-	    return $html . '</div>';
+	    return $html;
 		// No value.
 		else :
 		    // Do something...
@@ -184,7 +184,7 @@ function activate_show_journey_submissions(){
 
 	$sub_query = new WP_Query( $args );
 	if ( $sub_query->have_posts() ) {
-		$html .= "<div class='col-md-11'><h2>Challenges Answered!</h2></div>";
+		$html .= "<div class='col-md-12 journey-challenges'><h2 class='center-label'>Challenges Answered!</h2></div>";
 	    while ( $sub_query->have_posts() ) {
 	        $sub_query->the_post();
 	        $title = get_the_title();

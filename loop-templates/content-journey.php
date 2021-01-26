@@ -15,9 +15,11 @@ defined( 'ABSPATH' ) || exit;
 		<div class="col-md-11 offset-md-1 challenge-text">	
 		    <?php echo acf_fetch_journey_description();?>		
 			<?php the_content(); ?>
-			<div class="row">
-				<?php echo activate_resource_repeater();?>
+			<div class="row journey-experts">
 				<?php echo activate_expert_repeater();?>
+			</div>
+			<div class="row journey-resources">
+				<?php echo activate_resource_repeater();?>
 			</div>
 			<div class="row">
 				<?php echo activate_show_journey_submissions();?>

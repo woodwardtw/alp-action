@@ -38,7 +38,7 @@
             "min": 0,
             "max": 0,
             "layout": "block",
-            "button_label": "Add Resoruce",
+            "button_label": "Add Resource",
             "sub_fields": [
                 {
                     "key": "field_600d7f074e457",
@@ -113,7 +113,7 @@
             "min": 0,
             "max": 0,
             "layout": "block",
-            "button_label": "Add Resoruce",
+            "button_label": "Add Expert",
             "sub_fields": [
                 {
                     "key": "field_600d7f8480b38",
@@ -243,5 +243,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611660201
+    "modified": 1611661106
 }

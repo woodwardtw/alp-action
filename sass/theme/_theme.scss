@@ -46,6 +46,19 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #fff;
 }
 
+.entry-title-home {
+	color: $midnight;
+	font-weight: 900;
+    padding-top: 200px;
+    text-align: center;
+    font-size: 5em;
+}
+
+.home-page .entry-content {
+	color: $midnight;
+	margin-top: 50px;
+}
+
 // .rocket-land {
 // 	position:relative;
 //   	width:50%;
@@ -278,19 +291,88 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 0 20px;
 }
 
-//home page 
-.entry-title-home {
-	color: $midnight;
-	font-weight: 900;
-    padding-top: 200px;
-    text-align: center;
-    font-size: 5em;
+//single journey 
+.journey-resource, .journey-experts, .journey-challenges {
+	margin-top: 90px;
 }
 
-.home-page .entry-content {
-	color: $midnight;
-	margin-top: 50px;
+.center-label {
+	font-size: 2em;
+	font-weight: 900;
+	display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+
 }
+
+.center-label:before, .center-label:after {
+    content: '';
+    border-top: 5px solid $gold;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+
+.center-label:after {
+    margin: 0 0 0 20px;
+}
+
+
+.journey-experts .col-md-4 {
+	margin-top: 30px;
+}
+
+.expert-item {
+	padding: 30px;
+	background-color: #efefef;
+	height: 100%;
+	position: relative;
+	padding-bottom: 80px;
+	margin-bottom: 40px;
+}
+
+
+.expert-item h3 {
+	font-size: .9em;
+}
+
+.expert-item p {
+	font-size: .7em;
+}
+
+.expert-bio {
+	width: 100%;
+	object-fit: cover;
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+.expert-social {
+	position: absolute;
+	bottom: 20px;
+}
+
+.twitter, .homepage {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background-position: center center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.twitter {
+	background-image: url(../imgs/twitter.svg);
+}
+
+
+.homepage {
+	background-image: url(../imgs/link.svg);
+}
+
 
 //starmap
 
