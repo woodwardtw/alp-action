@@ -8,6 +8,35 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+//home
+
+function activate_home_journey_repeater(){
+	$html = '';
+	if( have_rows('journeys') ):
+
+	    // Loop through rows.
+	    while( have_rows('journeys') ) : the_row();
+
+	        // Load sub field value.
+	        $journey = get_sub_field('journey');
+	        $description = get_sub_field('journey_description');
+	        $title = $journey->post_title;
+	        $link = $journey->guid;
+	        $img = get_template_directory_uri() . '/imgs/badge-' . $journey->post_name .'.svg';
+	        $html .= "<div class='row home-journeys'><div class='col-md-5'><a href='{$link}'><img src='{$img}' class='img-fluid journey-home-img' alt='{$title} icon.'></a></div><div class='col-md-7'><a href='{$link}'><h2>{$title}</h2></a>{$description}</div></div>";
+	        // Do something...
+	    // End loop.
+	    endwhile;
+	    return $html;
+		// No value.
+		else :
+		    // Do something...
+		endif;
+	}
+
+
+
+
 //journeys
 
 
@@ -16,10 +45,19 @@ function acf_fetch_challenge(){
   $challenge = get_field('challenge_description');
 
     if( $challenge) {      
-      $html = "<h2>Challenge</h2>" . $challenge;  
+      $html = "<h2 class='center-label'>Challenge</h2>" . $challenge;  
      return $html;    
     }
 
+}
+
+function acf_fetch_supporting_resources(){
+	$html = '';
+	$resources = get_field('supporting_resources');
+    if( $resources) {      
+      $html = "<div class='supporting-resources'><h3>Supporting Resources</h3>{$resources}</div>";  
+     return $html;    
+    }
 }
 
 
@@ -184,16 +222,19 @@ function activate_show_journey_submissions(){
 
 	$sub_query = new WP_Query( $args );
 	if ( $sub_query->have_posts() ) {
-		$html .= "<div class='col-md-12 journey-challenges' id='challenge-div'><h2 class='center-label'>Challenges Answered!</h2></div>";
+		$html .= "<div class='col-md-12 journey-challenges' id='challenge-div'><h2 class='center-label'>Try a Challenge!</h2></div>";
 	    while ( $sub_query->have_posts() ) {
 	        $sub_query->the_post();
 	        $title = get_the_title();
 	        $link = get_the_permalink();
 	        $image = get_the_post_thumbnail_url($post->ID,'medium');
-	        $journey = get_field('journey_alignment', $post->ID)[0]->post_name;
-
-	        if ($journey === $journey_name){
-	        	 $html .= "<div class='col-md-4 image-response'><a href='{$link}'><img src='{$image}' class='challenge-image img-fluid'><h3>{$title}</h3></a></div>";
+	        $journey = get_field('journey_alignment', $post->ID);
+	        $cats = array();
+	        foreach ($journey as $key => $journey_cat) {
+	        	 array_push($cats, $journey_cat->post_name);
+	        }	      
+	        if (in_array($journey_name, $cats)){
+	        	 $html .= "<div class='col-md-4'><div class='image-response'><a href='{$link}'><img src='{$image}' class='challenge-image img-fluid'><h3>{$title}</h3></a></div></div>";
 	        }
 	    }
 	    echo $html;
@@ -203,8 +244,6 @@ function activate_show_journey_submissions(){
 	/* Restore original Post Data */
 	wp_reset_postdata();
 }
-
-
 
 
 

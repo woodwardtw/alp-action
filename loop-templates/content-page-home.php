@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 		<div class="entry-content">
 
 			<?php the_content(); ?>
-
+			<?php echo activate_home_journey_repeater();?>
 			<?php
 			wp_link_pages(
 				array(

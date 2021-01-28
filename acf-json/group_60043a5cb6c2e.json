@@ -88,6 +88,25 @@
             "multiple": 0
         },
         {
+            "key": "field_60121851ab3e8",
+            "label": "Supporting Resources",
+            "name": "supporting_resources",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_600ab70fae4fa",
             "label": "Submission Path",
             "name": "submission_path",
@@ -135,5 +154,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611314973
+    "modified": 1611798629
 }

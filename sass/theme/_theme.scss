@@ -18,6 +18,20 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 800;
 }
 
+//menu 
+.navbar-expand-md .navbar-nav .dropdown-menu {
+	z-index: 40000;
+}
+
+#navbarNavDropdown {
+	padding-right: 50px;
+}
+
+.dropdown-item a:hover {
+	background-color: $gold;
+}
+
+
 //home
 
 .home {
@@ -60,7 +74,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 50px;
 }
 
+.home-journeys {
+	margin: 90px 0;
+}
 
+.journey-home-img {
+	display: block;
+	margin: 0 auto;
+}
 
 //challenge and journey headers
 
@@ -155,6 +176,11 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.5;
 }
 
+.supporting-resources {
+	margin: 70px 0;
+}
+
+
 .phase-icon, .journey-icon {
 	height: 300px;
 	width: 100%;
@@ -167,6 +193,23 @@ h1, h2, h3, h4, h5, h6 {
 .phase-icon.empathize {
 	background-image: url(../imgs/badge_empathize.svg);
 }
+
+.phase-icon.define {
+	background-image: url(../imgs/badge_define.svg);
+}
+
+.phase-icon.ideate {
+	background-image: url(../imgs/badge_ideate.svg);
+}
+
+.phase-icon.prototype {
+	background-image: url(../imgs/badge_prototype.svg);
+}
+
+.phase-icon.amplify {
+	background-image: url(../imgs/badge_amplify.svg);
+}
+
 
 .journey-icon.virtual-and-blended-learning {
 	background-image: url(../imgs/badge-virtual-and-blended-learning.svg);
@@ -213,10 +256,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .image-response {
-	margin-bottom: 40px;
-	margin-top: 20px;
-	background-color: #efefef;
-	border: 10px solid #fff;
+	border: 2px solid $midnight;
+	transition: all .5s;
+	height: 95%;
+	padding: 20px;
+}
+
+.image-response:hover{
+	box-shadow: 5px 5px $gold;
 }
 
 //SUBMITTED CHALLENGES***************************
@@ -412,3 +459,5 @@ h1, h2, h3, h4, h5, h6 {
 #footer a {
 	color: #fff;
 }
+
+
