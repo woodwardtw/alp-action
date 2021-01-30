@@ -76,11 +76,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .home-journeys {
 	margin: 90px 0;
+	padding: 0 0 60px 0;
+	border-bottom: 2px solid $gold;
 }
 
 .journey-home-img {
 	display: block;
 	margin: 0 auto;
+}
+
+.home-text {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
 
 //challenge and journey headers
@@ -414,6 +423,12 @@ h1, h2, h3, h4, h5, h6 {
 	background-image: url(../imgs/link.svg);
 }
 
+
+//navigation buttons 
+
+.nav-links {
+	padding: 50px 30px;
+}
 
 //starmap
 

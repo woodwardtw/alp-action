@@ -19,6 +19,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
+	<link rel="icon" 
+      type="image/svg" 
+      href="<?php echo get_template_directory_uri() . "/imgs/alp_logo.svg"?>" />
 </head>
 
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>

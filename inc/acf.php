@@ -18,13 +18,21 @@ function activate_home_journey_repeater(){
 	    while( have_rows('journeys') ) : the_row();
 
 	        // Load sub field value.
+	        $index = get_row_index();
 	        $journey = get_sub_field('journey');
 	        $description = get_sub_field('journey_description');
 	        $title = $journey->post_title;
-	        $link = $journey->guid;
+	        $link = get_the_permalink($journey->ID);//$journey->guid;
 	        $img = get_template_directory_uri() . '/imgs/badge-' . $journey->post_name .'.svg';
-	        $html .= "<div class='row home-journeys'><div class='col-md-5'><a href='{$link}'><img src='{$img}' class='img-fluid journey-home-img' alt='{$title} icon.'></a></div><div class='col-md-7'><a href='{$link}'><h2>{$title}</h2></a>{$description}</div></div>";
+	        //var_dump($journey);
+	        if($index % 2 == 0){
+	        	 $html .= "<div class='row home-journeys'><div class='col-md-5'><a href='{$link}'><img src='{$img}' class='img-fluid journey-home-img' alt='{$title} icon.'></a></div><div class='col-md-7 home-text'><a href='{$link}'><h2>{$title}</h2></a>{$description}</div></div>";
 	        // Do something...
+	        	} else {
+	        		 $html .= "<div class='row home-journeys'><div class='col-md-7 home-text'><a href='{$link}'><h2>{$title}</h2></a>{$description}</div><div class='col-md-5 '><a href='{$link}'><img src='{$img}' class='img-fluid journey-home-img' alt='{$title} icon.'></a></div></div>";
+	        // Do something...
+	        	}
+	       
 	    // End loop.
 	    endwhile;
 	    return $html;
@@ -86,7 +94,7 @@ function acf_fetch_journey(){
   $journey = get_field('journey_alignment', $post->ID);
     if( $journey) {  
     $name = $journey[0]->post_title;
-    $url = $journey[0]->guid;
+    $url =  get_the_permalink($journey[0]->ID);
     $slug = $journey[0]->post_name;
 
     $html = "<h3>Journey</h3><a href='{$url}' aria-label='See more {$name} work'><div class='journey-icon {$slug}'></div></a>";  
