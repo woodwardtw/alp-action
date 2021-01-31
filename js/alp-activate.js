@@ -37,7 +37,7 @@ if (document.getElementById('starmap')){
 
 //SMOOTH SCROLL ALL HASH from https://css-tricks.com/snippets/jquery/smooth-scrolling/
 (function($) {
-  if (!document.querSelector('.single-challenge')){//prevent running on training page
+  if (!document.querySelector('.single-challenge')){//prevent running on training page
 
  // Select all links with hashes
 $('a[href*="#"]')
