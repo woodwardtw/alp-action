@@ -133,8 +133,17 @@ function activate_show_challenge_submissions(){
 	        $module_query->the_post();
 	        $title = get_the_title();
 	        $link = get_the_permalink();
-	        $image = get_the_post_thumbnail_url($post->ID,'medium');
-	        $html .= "<div class='col-md-4 image-response'><a href='{$link}'><img src='{$image}' class='challenge-image img-fluid'><h3>{$title}</h3></a></div>";
+	        if(get_the_post_thumbnail_url($post->ID,'medium')){
+		        $image = get_the_post_thumbnail_url($post->ID,'medium');	        
+		        $img_full = "<img src='{$image}' class='challenge-image img-fluid'>";
+	        } else if (activate_find_youtube(get_the_content())){
+	        	 $url = activate_find_youtube(get_the_content());
+	        	 $image = $url;
+	        	 $img_full = "<img src='{$image}' class='challenge-image img-fluid'>";
+	        } else {
+	        	$image_full = '';
+	        }
+	        $html .= "<div class='col-md-4 image-response'><a href='{$link}'>{$img_full}<h3>{$title}</h3></a></div>";
 	    }
 	    echo $html;
 	} else {
@@ -142,6 +151,14 @@ function activate_show_challenge_submissions(){
 	}
 	/* Restore original Post Data */
 	wp_reset_postdata();
+}
+
+
+function activate_find_youtube($content){
+	//from https://stackoverflow.com/a/6121972/3390935
+    preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $content, $matches);
+    //var_dump($matches[0]);
+    return "https://img.youtube.com/vi/{$matches[0]}/hqdefault.jpg";
 }
 
 //JOURNEY
