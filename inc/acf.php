@@ -141,9 +141,11 @@ function activate_show_challenge_submissions(){
 	        	 $image = $url;
 	        	 $img_full = "<img src='{$image}' class='challenge-image img-fluid'>";
 	        } else {
-	        	$image_full = '';
+	        	$num = rand(1,7);
+	        	$url = get_template_directory_uri();
+	        	$img_full = "<img src='{$url}/imgs/idea_{$num}.svg' class='challenge-image img-fluid svg-default'>";
 	        }
-	        $html .= "<div class='col-md-4 image-response'><a href='{$link}'>{$img_full}<h3>{$title}</h3></a></div>";
+	        $html .= "<div class='col-md-4'><div class='image-response'><a href='{$link}'>{$img_full}<h3>{$title}</h3></a></div></div>";
 	    }
 	    echo $html;
 	} else {
@@ -156,9 +158,13 @@ function activate_show_challenge_submissions(){
 
 function activate_find_youtube($content){
 	//from https://stackoverflow.com/a/6121972/3390935
-    preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $content, $matches);
-    //var_dump($matches[0]);
-    return "https://img.youtube.com/vi/{$matches[0]}/hqdefault.jpg";
+	if(preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $content, $matches)){
+		 preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $content, $matches);
+    	//var_dump($matches[0]);
+    	return "https://img.youtube.com/vi/{$matches[0]}/hqdefault.jpg";
+	} else {
+		return FALSE;
+	}
 }
 
 //JOURNEY
